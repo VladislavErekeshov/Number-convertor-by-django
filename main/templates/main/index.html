@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Number convertor</title>
+</head>
+<body>
+    Привет, я могу перевести число из одной системы исчисления в другую. Для этого ты должен через пробел написать 3 числа: первое - это число, которое нужно перевести, второе - это система исчисления, в которой это число находится и третье - система исчисления, в которую нужно перевести. Пример: 46458 10 2 или HRT29 35 16
+    <br>
+    Hi, I can convert a number from one number system to another. To do this, you write 3 numbers separated by a space: the first is the number that needs to be translated, in which this number is located and the third is the number system that needs to be translated. Example: 46458 10 2 or HRT29 35 16
+    <form method="POST">
+        {% csrf_token %}
+        <br>
+        {{ convertor.number }}<br>
+        {{ convertor.b }}<br>
+        {{ convertor.c }}<br>
+        <button type="submit" class="btn btn-success">Convert</button>
+        <span>{{ error }}</span>
+    </form> 
+</body>
+</html>
